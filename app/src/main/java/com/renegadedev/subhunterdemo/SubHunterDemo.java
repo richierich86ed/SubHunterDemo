@@ -120,6 +120,6 @@ public class SubHunterDemo extends Activity {
         Log.d("shotsTaken", "" + shotsTaken);
         Log.d("debugging", "" + debugging);
 
-        Log.d("distacnceFromSub", "" + distanceFromSub);
+        Log.d("distanceFromSub", "" + distanceFromSub);
     }
 }
