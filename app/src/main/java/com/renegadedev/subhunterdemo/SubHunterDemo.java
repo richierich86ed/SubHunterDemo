@@ -6,6 +6,10 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
+import java.util.Random;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.widget.ImageView;
 
 public class SubHunterDemo extends Activity {
 
@@ -57,6 +61,11 @@ public class SubHunterDemo extends Activity {
         and after the player wins a game.
      */
     void newGame() {
+        Random random = new Random();
+        subHorizontalPosition = random.nextInt(gridWidth);
+        subVerticalPosition = random.nextInt(gridHeight);
+        shotsTaken = 0;
+
         Log.d("Debugging", "In newGame");
     }
 
