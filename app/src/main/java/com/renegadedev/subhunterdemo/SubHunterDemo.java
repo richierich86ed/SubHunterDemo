@@ -1,5 +1,7 @@
 package com.renegadedev.subhunterdemo;
 
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.app.Activity;
@@ -27,6 +29,11 @@ public class SubHunterDemo extends Activity {
     int distanceFromSub;
     boolean debugging = true;
 
+    ImageView gameView;
+    Bitmap blankBitmap;
+    Canvas canvas;
+    Paint paint;
+
     /*
     Android runs this code just before the app is seen by the player.
     This makes it a good place to add the code that is needed for
@@ -36,6 +43,13 @@ public class SubHunterDemo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        blankBitmap = Bitmap.createBitmap(numberHorizontalPixels, numberVerticalPixels,
+                Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(blankBitmap);
+        gameView = new ImageView(this);
+        paint = new Paint();
+        setContentView(gameView);
 
         // Get the current device's screen resolution
         Display display = getWindowManager().getDefaultDisplay();
@@ -75,6 +89,9 @@ public class SubHunterDemo extends Activity {
         the touch indicator.
      */
     void draw() {
+        gameView.setImageBitmap(blankBitmap);
+        canvas.drawColor(Color.argb(255,255,255,255));
+
         Log.d("Debugging", "In draw");
         printDebuggingText();
     }
